@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
+@include('items.create-modal')
+{{-- page custom style --}}
 <style type="text/css">
 #purchaseBody input {
 	width: 10em;
@@ -15,10 +17,13 @@
 	padding: 0px !important;
 }
 </style>
+
 <h1>Purchase</h1>
 <hr>
+
 <form method="POST" action="/items">
 	{{ csrf_field() }}
+	{{-- Header Form --}}
 	<div class="row bg-secondary border border-light rounded">
 		<div class="form-group col-sm-6">
 			<div class="row mt-3 pr-3">
@@ -33,12 +38,18 @@
 			</div>
 		</div>
 	</div>
+	{{-- Body Form --}}
 	<div class="table-responsive my-3">
 		<table class="table table-hover table-bordered table-sm">
 			<thead>
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">Item Code</th>
+					<th scope="col">Item Code
+						{{-- Modal triggered button --}}
+						<spam class="btn btn-outline-primary btn-sm float-right" data-toggle="modal" data-target="#items-create-modal">
+							New
+						</spam>
+					</th>
 					<th scope="col">Name</th>
 					<th scope="col">Purchased Price</th>
 					<th scope="col">Sell Price</th>

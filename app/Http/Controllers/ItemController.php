@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
-use App\Purchase;
 
 class ItemController extends Controller
 {
@@ -15,13 +14,16 @@ class ItemController extends Controller
 
 	public function store()
 	{
-		return request();
-    	//save to purchase
-		//Purchase::create(['amount'=>request('amount'), 'currency'=>request('currency')[0]]);
+		//return request();
+    	//save to item
+    	Item::create([
+    		'code'=>request('code'),
+    		'name'=>request('name')
+,    		'price'=>request('price'),
+    		'currency'=>request('currency')
+    	]);
 
-    	//get saved purchase id
-
-    	//loop attach to item id with data
-    	//return to create page
+    	//return back
+    	return back();
 	}
 }

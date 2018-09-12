@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	@include('layouts.bootstrap')
-	<title>TaiSport </title>
+	<title>TaiSport</title>
 </head>
 <body class="bg-secondary">
 	<script src="/js/jquery.js"></script>
