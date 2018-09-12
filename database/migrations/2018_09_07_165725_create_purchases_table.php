@@ -15,8 +15,10 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('code')->unique()->nullable();
             $table->double('amount');
             $table->string('currency')->default('kyat');
+            $table->date('date')->nullable();
             $table->timestamps();
         });
 
